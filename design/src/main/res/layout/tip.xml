@@ -1,0 +1,8 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Design.Tip">
+
+    <TextView
+        android:id="@+id/global_tip_tv"
+        style="@style/Design.TipText" />
+
+</RelativeLayout>

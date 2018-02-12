@@ -1,0 +1,289 @@
+package me.chriskyle.library.social.internal.net;
+
+import android.accounts.NetworkErrorException;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Handler;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
+
+/**
+ * Description :
+ * <p>
+ * Created by Chris Kyle on 2017/11/21.
+ */
+public final class RequestManager {
+
+    public interface HttpResponseCallBack {
+
+        void onSuccess(JSONObject response);
+
+        void onFailure();
+    }
+
+    /**
+     * 异步传输post请求 仅文本参数
+     *
+     * @param url      请求地址
+     * @param params   请求参数
+     * @param callback 请求回调
+     */
+    public static void doPost(final String url, final Map<String, String> params, final HttpResponseCallBack callback) {
+        final Handler handler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String response = post(url, params, null);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (response == null) {
+                            callback.onFailure();
+                            return;
+                        }
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            callback.onSuccess(json);
+                        } catch (JSONException e) {
+                            callback.onFailure();
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
+    /**
+     * 异步传输post请求 文本 文件混合参数
+     *
+     * @param url      请求地址
+     * @param params   文本参数
+     * @param file     上传文件参数
+     * @param callback 请求回调
+     */
+    public static void doPost(final String url, final Map<String, String> params, final Map<String, String> file, final HttpResponseCallBack callback) {
+        final Handler handler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String response = post(url, params, file);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (response == null) {
+                            callback.onFailure();
+                            return;
+                        }
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            callback.onSuccess(json);
+                        } catch (JSONException e) {
+                            callback.onFailure();
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
+    /**
+     * 异步传输get请求
+     *
+     * @param url      请求url
+     * @param callback 请求回调
+     */
+    public static void doGet(final String url, final HttpResponseCallBack callback) {
+        final Handler handler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String response = get(url);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (response == null) {
+                            callback.onFailure();
+                            return;
+                        }
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            callback.onSuccess(json);
+                        } catch (JSONException e) {
+                            callback.onFailure();
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
+    /**
+     * 使用HttpURLConnection进行post请求
+     *
+     * @param url    请求地址
+     * @param params 请求参数 key-val
+     * @param files  上传的文件 key-file path
+     * @return 请求返回值
+     */
+    @TargetApi(Build.VERSION_CODES.ECLAIR)
+    private static String post(String url, Map<String, String> params, Map<String, String> files) {
+        HttpURLConnection conn = null;
+
+        String PREFIX = "--";
+        String BOUNDARY = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
+        String END = "\r\n";
+
+        try {
+            URL mURL = new URL(url);
+            conn = (HttpURLConnection) mURL.openConnection();
+
+            conn.setReadTimeout(5000);
+            conn.setConnectTimeout(10000);
+
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setUseCaches(false);
+
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Connection", "Keep-Alive");
+            conn.setRequestProperty("Charset", "UTF-8");
+            conn.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
+            conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
+
+            DataOutputStream outputStream = new DataOutputStream(conn.getOutputStream());
+
+            if (files != null && !files.isEmpty()) {
+                Iterator<Map.Entry<String, String>> iterator = files.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry<String, String> param = iterator.next();
+                    String file_param_name = param.getKey();
+                    String file_path = param.getValue();
+                    String filename = file_path.substring(file_path.lastIndexOf("/") + 1);
+
+                    File file = new File(file_path);
+                    if (file == null || !file.exists()) {
+                        //CILogUtils.e("file not exist:" + file);
+                        continue;
+                    }
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(PREFIX + BOUNDARY + END);
+                    sb.append("Content-Disposition: form-data; name=" + "\"" + file_param_name +
+                            "\";filename=\"" + filename + "\"" + END);
+                    sb.append("Content-Type: application/octet-stream; charset=UTF-8" + END);
+                    sb.append(END);
+                    outputStream.writeBytes(sb.toString());
+
+                    FileInputStream fis = new FileInputStream(file_path);
+                    byte[] buffer = new byte[1024];
+                    int length = -1;
+                    while ((length = fis.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, length);
+                    }
+                    fis.close();
+
+                    outputStream.writeBytes(END);
+                }
+            }
+
+            if (params != null && !params.isEmpty()) {
+                Iterator<Map.Entry<String, String>> iterator = params.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry<String, String> param = iterator.next();
+                    String key = param.getKey();
+                    String value = param.getValue();
+
+                    if (key == null || value == null) {
+                        continue;
+                    }
+                    outputStream.writeBytes(PREFIX + BOUNDARY + END);
+                    outputStream.writeBytes("Content-Disposition: form-data; name=" + "\"" + key + "\"" + END);
+                    outputStream.writeBytes("Content-Type: text/plain; charset=UTF-8" + END);
+                    outputStream.writeBytes(END);
+                    outputStream.write(value.getBytes("UTF-8"));
+                    outputStream.writeBytes(END);
+                }
+            }
+
+            outputStream.writeBytes(PREFIX + BOUNDARY + END);
+            outputStream.flush();
+            outputStream.close();
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream is = conn.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                if (is != null) {
+                    is.close();
+                }
+
+                return response.toString();
+            } else {
+                throw new NetworkErrorException("response status is " + responseCode);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.ECLAIR)
+    private static String get(String url) {
+        HttpURLConnection conn = null;
+        try {
+            URL mURL = new URL(url);
+            conn = (HttpURLConnection) mURL.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setReadTimeout(5000);
+            conn.setConnectTimeout(10000);
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream is = conn.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                if (is != null) {
+                    is.close();
+                }
+
+                return response.toString();
+            } else {
+                throw new NetworkErrorException("response status is " + responseCode);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+        }
+    }
+}

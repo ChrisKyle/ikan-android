@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <LinearLayout style="@style/Widget.Setting.Group">
+
+        <RelativeLayout style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_message_notification" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:theme="@style/Widget.Switch" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_bind"
+            style="@style/Widget.Setting.Item"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_account_bind" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/Widget.Setting.Group">
+
+        <RelativeLayout
+            android:id="@+id/clear_download_history"
+            style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_clear_download_history" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/clear_play_history"
+            style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_clear_watch_history" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/Widget.Setting.Group">
+
+        <RelativeLayout
+            android:id="@+id/help_feedback"
+            style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_help_feedback" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/privacy_policy"
+            style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_privacy_policy" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/about"
+            style="@style/Widget.Setting.Item">
+
+            <TextView
+                style="@style/Widget.Setting.Item.Title"
+                android:text="@string/setting_about" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/logout"
+        style="@style/Widget.Logout.Btn" />
+
+</LinearLayout>

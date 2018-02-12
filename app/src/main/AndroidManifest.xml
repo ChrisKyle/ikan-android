@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.chriskyle.ikan">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="me.chriskyle.ikan.presentation.IKanApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IKan.Slide">
+
+        <activity
+            android:name="me.chriskyle.ikan.presentation.module.main.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.IKan.Launcher"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".presentation.module.feed.trending.more.TrendingMoreActivity"
+            android:label="@string/activity_label_trending_more"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.module.feed.detail.FeedDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/activity_label_feed_detail"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".presentation.module.notification.NotificationActivity"
+            android:label="@string/activity_label_notification"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.setting.SettingActivity"
+            android:label="@string/activity_label_setting"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.feed.download.DownloadActivity"
+            android:label="@string/activity_label_download"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.feed.upload.UploadActivity"
+            android:label="@string/activity_label_upload"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.feed.watchhistory.WatchHistoryActivity"
+            android:label="@string/activity_label_watch_history"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.about.AboutActivity"
+            android:label="@string/activity_label_about"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.base.web.simple.SimpleWebActivity"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.help.HelpActivity"
+            android:label="@string/activity_label_help"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.help.feedback.FeedbackActivity"
+            android:label="@string/activity_label_feedback"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.assets.AssetsActivity"
+            android:label="@string/activity_label_assets"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.account.bind.AccountBindActivity"
+            android:label="@string/activity_label_account_bind"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".presentation.module.video.VideoPlayerActivity"
+            android:label="@string/activity_label_video_player"
+            android:launchMode="singleInstance" />
+
+        <activity
+            android:name=".presentation.module.account.edit.AccountEditActivity"
+            android:label="@string/activity_label_account_edit"
+            android:launchMode="singleTop" />
+
+        <activity android:name=".presentation.module.account.edit.nickname.NicknameEditActivity"
+            android:label="@string/activity_label_nickname_edit"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:launchMode="singleTop"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+
+        <!-- ********************************* social ******************************************* -->
+
+        <activity
+            android:name="me.chriskyle.library.social.wx.WXCallbackActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106466285" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="${applicationId}.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <service android:name="me.chriskyle.ikan.presentation.module.update.service.DownloadService"/>
+
+        <provider
+            android:name="me.chriskyle.ikan.presentation.module.update.UpdateFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/update_app_file_paths"/>
+        </provider>
+
+        <!-- wb -->
+        <meta-data
+            android:name="WEIBO_APP_KEY"
+            android:value="${WEIBO_APP_KEY}" />
+        <meta-data
+            android:name="WEIBO_REDIRECT_URL"
+            android:value="${WEIBO_REDIRECT_URL}" />
+        <meta-data
+            android:name="WEIBO_SCOPE"
+            android:value="${WEIBO_SCOPE}" />
+
+        <!-- qq -->
+        <meta-data
+            android:name="TENCENT_ID"
+            android:value="${TENCENT_ID}" />
+
+        <!-- wx -->
+        <meta-data
+            android:name="WEIXIN_ID"
+            android:value="${WEIXIN_ID}" />
+        <meta-data
+            android:name="WEIXIN_SECRET"
+            android:value="${WEIXIN_SECRET}" />
+
+    </application>
+
+</manifest>

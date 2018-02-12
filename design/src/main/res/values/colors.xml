@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+
+    <color name="grey">#fafafa</color>
+    <color name="grey0">#f3f3f3</color>
+    <color name="grey1">#f5f5f5</color>
+    <color name="grey2">#eeeeee</color>
+    <color name="grey3">#e0e0e0</color>
+    <color name="grey4">#bdbdbd</color>
+    <color name="grey5">#a4a4a4</color>
+    <color name="grey6">#818181</color>
+    <color name="grey7">#717171</color>
+    <color name="grey8">#616161</color>
+    <color name="grey9">#212121</color>
+
+    <color name="theme_main_window_background">#e6e6e6</color>
+
+    <color name="primary_grey">#e9e9e9</color>
+    <color name="secondary_grey">#dddddd</color>
+    <color name="tertiary_grey">#bababa</color>
+
+    <color name="primary_blue">#0586d0</color>
+    <color name="secondary_blue">#0678b9</color>
+
+    <color name="primary_yellow">#f1b664</color>
+    <color name="secondary_yellow">#f5bd7e</color>
+
+    <color name="primary_pink">#fa405e</color>
+    <color name="secondary_pink">#fa405e</color>
+
+    <color name="primary_dark">#5f5f5f</color>
+    <color name="secondary_dark">#757575</color>
+    <color name="tertiary_dark">#9d9d9d</color>
+
+    <color name="title_color_primary">#212121</color>
+    <color name="title_color_secondary">#515151</color>
+    <color name="title_color_tertiary">#8c8c8c</color>
+
+    <color name="divider_line_color_primary">#ededed</color>
+    <color name="divider_line_color_secondary">#000000</color>
+
+    <color name="common_item_bg_normal_color">@color/white</color>
+    <color name="common_item_bg_press_color">#f2f2f2</color>
+
+    <color name="lce_des_text_color">@color/primary_dark</color>
+
+    <color name="tip_bg">#803d3d3d</color>
+
+    <color name="swipe_menu_bg">@color/tertiary_grey</color>
+</resources>

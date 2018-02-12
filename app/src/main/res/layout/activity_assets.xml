@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/balance"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:primary_title="@string/current_assets"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/donate_title"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/title_color_tertiary"
+            android:textSize="@dimen/title_size_tertiary" />
+
+        <me.chriskyle.library.support.TagGroup
+            android:id="@+id/denominations"
+            style="@style/Assets.Recharge"
+            android:layout_marginTop="25dp"
+            app:atg_borderColor="@color/primary_yellow"
+            app:atg_textColor="@color/title_color_primary"
+            app:atg_textSize="@dimen/title_size_primary" />
+
+        <Button
+            android:id="@+id/donate"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="25dp"
+            android:enabled="false"
+            android:background="@drawable/assets_donate_btn_bg"
+            android:text="@string/donate"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </LinearLayout>
+
+</LinearLayout>

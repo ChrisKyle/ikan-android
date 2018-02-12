@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ParallaxViewPager">
+        <attr name="mode">
+            <enum name="left_overlay" value="0" />
+            <enum name="right_overlay" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="outset" format="fraction|dimension" />
+        <attr name="interpolator" format="reference" />
+        <attr name="shadow_width" format="dimension" />
+        <attr name="left_shadow" format="reference" />
+        <attr name="right_shadow" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="swipeEnable" format="boolean"/>
+        <attr name="ios" format="boolean"/>
+        <attr name="leftSwipe" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SlidingLayout">
+        <attr name="background_view" format="reference"/>
+        <attr name="sliding_mode" format="enum">
+            <enum name="both" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+        </attr>
+        <attr name="sliding_pointer_mode" format="enum">
+            <enum name="one" value="0"/>
+            <enum name="more" value="1"/>
+        </attr>
+        <attr name="top_max" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="InsLoadingViewAttr">
+        <attr name="rotate_duration" format="integer" />
+        <attr name="circle_duration" format="integer" />
+        <attr name="start_color" format="color" />
+        <attr name="end_color" format="color" />
+        <attr name="status" >
+            <enum name="loading" value="0" />
+            <enum name="clicked" value="1" />
+            <enum name="unclicked" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="UpdateAppNumberProgressBar">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+
+        <attr name="progress_unreached_color" format="color"/>
+        <attr name="progress_reached_color" format="color"/>
+
+        <attr name="progress_reached_bar_height" format="dimension"/>
+        <attr name="progress_unreached_bar_height" format="dimension"/>
+
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+
+        <attr name="progress_text_offset" format="dimension"/>
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/trending_section_height"
+    android:paddingEnd="5dp"
+    android:paddingStart="5dp">
+
+    <me.chriskyle.library.design.UnderLineTextView
+        android:id="@+id/section"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/trending_section_height"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_size_secondary"
+        app:underlineColor="@color/feed_section_color"
+        app:underlineWidth="2.5dp" />
+
+    <TextView
+        android:id="@+id/look_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:drawableEnd="@drawable/ic_right_grey"
+        android:gravity="center"
+        android:text="@string/look_more"
+        android:textColor="@color/title_color_primary"
+        android:textSize="@dimen/title_size_tertiary" />
+
+</RelativeLayout>

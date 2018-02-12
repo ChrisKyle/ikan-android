@@ -1,0 +1,40 @@
+apply from: './buildSystem/dependencies.gradle'
+
+buildscript {
+    ext.kotlin_version = '1.2.21'
+    ext.aspectj_version = '1.8.13'
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha02'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.aspectj:aspectjtools:$aspectj_version"
+        classpath fileTree(dir:'./buildSystem/plugins', include:['*.jar'])
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+ext {
+    androidBuildTools = "27.0.3"
+    androidMinSdk = 18
+    androidTargetSdk = 26
+    androidCompileSdk = 26
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

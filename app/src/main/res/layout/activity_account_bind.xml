@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/qq"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:left_icon="@drawable/ic_qq"
+        app:primary_title="@string/bind_qq"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title="@string/bind_yes"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="14sp" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/wx"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:left_icon="@drawable/ic_wx"
+        app:primary_title="@string/bind_wx"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title="@string/bind_no"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="14sp" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/wb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:left_icon="@drawable/ic_wb"
+        app:primary_title="@string/bind_wb"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title="@string/bind_no"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="14sp" />
+
+</LinearLayout>

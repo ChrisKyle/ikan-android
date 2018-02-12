@@ -1,0 +1,188 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/share_bg">
+
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/share_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/cancel"
+            android:textColor="@color/title_color_secondary"
+            android:textSize="@dimen/title_size_secondary" />
+
+        <LinearLayout
+            android:id="@+id/qq_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/close"
+            android:layout_marginEnd="65dp"
+            android:layout_marginTop="15dp"
+            android:layout_toStartOf="@+id/qq_zone"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_qq" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/qq_friends"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/qq_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/close"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_qq_zone_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/qq_zone"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/qq_zone"
+            android:layout_marginStart="65dp"
+            android:layout_toEndOf="@id/qq_zone"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_wb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/wb"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wx_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/qq_zone"
+            android:layout_marginEnd="65dp"
+            android:layout_toStartOf="@+id/wx_timeline"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_wx" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/wx_friends"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wx_timeline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/qq_zone"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_friend_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/wx_timeline"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/paste_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/close"
+            android:layout_marginStart="65dp"
+            android:layout_toEndOf="@id/qq_zone"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/share_ic_size"
+                android:layout_height="@dimen/share_ic_size"
+                android:src="@drawable/ic_paste_link" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/paste_link"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:text="@string/share_title"
+            android:textColor="@color/title_color_secondary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

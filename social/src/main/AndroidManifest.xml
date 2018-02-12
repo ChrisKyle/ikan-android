@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.chriskyle.library.social">
+
+    <application android:allowBackup="true">
+        <!-- qq -->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- wb -->
+        <activity
+            android:name=".internal.wb.WBShareCallbackActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+    </application>
+
+</manifest>

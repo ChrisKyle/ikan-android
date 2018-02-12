@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textSize="@dimen/title_size_secondary"
+            android:textColor="@color/title_color_primary"
+            android:text="@string/see_list_recommend" />
+
+        <include layout="@layout/layout_lce_container" />
+
+    </LinearLayout>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

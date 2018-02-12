@@ -1,0 +1,1 @@
+apply from: '../buildSystem/buildLibrary.gradle'

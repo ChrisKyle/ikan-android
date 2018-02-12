@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.chriskyle.library.design.fragmentanim.SlidingRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingEnd="45dp"
+    android:paddingStart="45dp">
+
+    <include layout="@layout/layout_login" />
+
+</me.chriskyle.library.design.fragmentanim.SlidingRelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:paddingBottom="@dimen/loading_dialog_padding_bottom"
+    android:paddingLeft="@dimen/loading_dialog_padding_left"
+    android:paddingRight="@dimen/loading_dialog_padding_right"
+    android:paddingTop="@dimen/loading_dialog_padding_top">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minWidth="@dimen/loading_dialog_width_min"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/loading_dialog_indicator_margin_right"
+            android:layout_marginRight="@dimen/loading_dialog_indicator_margin_right">
+
+            <TextView
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/loading_dialog_label_text_color"
+            android:textSize="@dimen/loading_dialog_label_text_size"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+</FrameLayout>

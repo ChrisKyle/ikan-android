@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="45dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_about_logo" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/current_version"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:primary_title="@string/about_current_version"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title="1.0.0"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="14sp" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/version_update"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:primary_title="@string/about_new_version_update"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp"
+        app:secondary_title="@string/about_no_new_version"
+        app:secondary_title_color="@color/title_color_tertiary"
+        app:secondary_title_size="13sp" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/share"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:primary_title="@string/about_share_friend"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp" />
+
+    <me.chriskyle.library.design.table.TableRow
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/item_bg_selector_primary"
+        app:primary_title="@string/about_feedback"
+        app:primary_title_color="@color/title_color_secondary"
+        app:primary_title_size="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:text="@string/about_official_website"
+            android:textColor="@color/title_color_tertiary"
+            android:textSize="@dimen/title_size_tertiary" />
+
+    </RelativeLayout>
+
+</LinearLayout>

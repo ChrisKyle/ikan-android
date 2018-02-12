@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/content_bg">
+
+        <include layout="@layout/layout_toolbar_main" />
+
+        <ViewFlipper
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_nav_bar"
+            android:layout_below="@id/appbar_layout">
+
+            <fragment
+                android:id="@+id/home_fragment"
+                android:name="me.chriskyle.ikan.presentation.module.feed.home.HomeFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/trending_fragment"
+                android:name="me.chriskyle.ikan.presentation.module.feed.trending.TendingFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/tv_fragment"
+                android:name="me.chriskyle.ikan.presentation.module.feed.discover.DiscoverFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/see_list_fragment"
+                android:name="me.chriskyle.ikan.presentation.module.feed.recommend.RecommendFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </ViewFlipper>
+
+        <me.chriskyle.library.support.bottomnavigation.BottomNavigationBar
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <me.chriskyle.library.design.fragmentanim.SlidingRelativeLayout
+        android:id="@+id/root_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

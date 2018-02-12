@@ -1,0 +1,17 @@
+keytool -list -keystore
+
+storePassword "123456"
+keyAlias "ikan"
+keyPassword "123456"
+
+dev
+MD5:BE:46:27:26:25:4B:D2:9A:D3:5C:CA:A6:D5:BB:62:4E
+be462726254bd29ad35ccaa6d5bb624e
+SHA1:B1:BB:6C:12:8E:8D:A3:97:F4:4C:60:5F:A4:7B:51:FB:12:D7:3B:CC
+b1bb6c128e8da397f44c605fa47b51fb12d73bcc
+
+release
+MD5: F8:57:28:CD:77:AF:9C:47:1B:81:EA:6D:2E:48:F5:F4
+f85728cd77af9c471b81ea6d2e48f5f4
+SHA1: 29:FC:B8:08:BC:AC:90:4B:22:FB:2C:56:2B:AC:05:EE:F0:5B:97:4D
+29fcb808bcac904b22fb2c562bac05eef05b97d4

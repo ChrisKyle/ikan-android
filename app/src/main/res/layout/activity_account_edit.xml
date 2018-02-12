@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/avatar_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/item_bg_selector_primary"
+        android:padding="15dp">
+
+        <TextView
+            style="@style/Title.Secondary"
+            android:layout_centerVertical="true"
+            android:text="@string/account_edit_avatar" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/account_avatar"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            app:actualImageScaleType="centerCrop"
+            app:placeholderImage="@drawable/ic_account_avatar_default"
+            app:roundAsCircle="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_right_grey" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/ver_divider_secondary" />
+
+    <RelativeLayout
+        android:id="@+id/nickname_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_selector_primary"
+        android:padding="15dp">
+
+        <TextView
+            style="@style/Title.Secondary"
+            android:layout_centerVertical="true"
+            android:text="@string/account_edit_nickname" />
+
+        <TextView
+            android:id="@+id/nickname"
+            style="@style/Title.Secondary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_right_grey" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/ver_divider_secondary" />
+
+    <RelativeLayout
+        android:id="@+id/sex_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_selector_primary"
+        android:padding="15dp">
+
+        <TextView
+            style="@style/Title.Secondary"
+            android:layout_centerVertical="true"
+            android:text="@string/account_edit_sex" />
+
+        <TextView
+            android:id="@+id/gender"
+            style="@style/Title.Secondary"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp" />
+
+        <ImageView
+            android:id="@+id/sex_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_right_grey" />
+
+    </RelativeLayout>
+
+</LinearLayout>

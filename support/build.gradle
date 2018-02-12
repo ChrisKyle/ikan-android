@@ -1,0 +1,8 @@
+apply from: '../buildSystem/buildLibrary.gradle'
+
+dependencies {
+    implementation supportLibs
+    implementation rxJavaLibs
+    implementation otherLibs
+    implementation project(':toolkit')
+}

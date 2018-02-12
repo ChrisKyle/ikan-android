@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:hint="@string/media_name"
+            android:inputType="textUri"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:textColor="@color/title_color_primary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/ver_divider_secondary"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp">
+
+        <EditText
+            android:id="@+id/media_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:hint="@string/media_url"
+            android:inputType="textUri"
+            android:maxLength="200"
+            android:minLines="1"
+            android:textColor="@color/title_color_primary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </RelativeLayout>
+
+</LinearLayout>

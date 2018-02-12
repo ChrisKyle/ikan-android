@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_arrow_back_grey" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/back"
+                    android:gravity="center"
+                    android:textColor="@color/title_color_primary"
+                    android:textSize="@dimen/title_size_primary" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/send_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector_primary"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_feedback"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="@string/help_feedback"
+                android:textColor="@color/title_color_primary"
+                android:textSize="@dimen/title_size_secondary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_divider_height"
+                android:background="@color/tertiary_grey" />
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/layout_toolbar_divider" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:text="@string/help_hot_problem"
+        android:textColor="@color/title_color_primary"
+        android:textSize="@dimen/title_size_secondary" />
+
+    <include layout="@layout/layout_lce" />
+
+</LinearLayout>

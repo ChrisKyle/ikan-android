@@ -1,0 +1,11 @@
+apply from: '../buildSystem/buildLibrary.gradle'
+
+dependencies {
+    implementation supportLibs
+    implementation otherLibs
+
+    implementation files('libs/wechat_sdk_v3.1.1.jar')
+    implementation files('libs/qq_mta-sdk-1.6.2.jar')
+    implementation files('libs/qq_sdk_v3.1.0.jar')
+    implementation files('libs/wb-4.1.9.aar')
+}

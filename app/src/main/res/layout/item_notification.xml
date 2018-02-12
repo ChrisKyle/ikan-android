@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.chriskyle.library.support.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <RelativeLayout
+        android:id="@+id/content_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_bg_selector_primary"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/icon"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:singleLine="true"
+                    android:textColor="@color/title_color_primary"
+                    android:textSize="@dimen/title_size_primary" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/title_color_tertiary"
+                    android:textSize="@dimen/title_size_tertiary" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/title_color_tertiary"
+                android:textSize="@dimen/title_size_tertiary" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ver_division_line_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/primary_margin_left"
+            android:layout_toEndOf="@id/icon"
+            android:background="@color/secondary_grey" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/del"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:background="@color/swipe_menu_bg"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_del_red" />
+
+    </LinearLayout>
+
+</me.chriskyle.library.support.SwipeMenuLayout>

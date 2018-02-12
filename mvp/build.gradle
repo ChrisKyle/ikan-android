@@ -1,0 +1,5 @@
+apply from: '../buildSystem/buildLibrary.gradle'
+
+dependencies {
+    implementation supportLibs
+}

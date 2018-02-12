@@ -1,0 +1,8 @@
+apply from: '../buildSystem/buildLibrary.gradle'
+
+dependencies {
+    implementation rxJavaLibs
+    implementation networkLibs
+    implementation dagger
+    implementation project(':toolkit')
+}

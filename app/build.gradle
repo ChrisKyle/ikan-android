@@ -1,0 +1,232 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion androidCompileSdk
+    buildToolsVersion androidBuildTools
+
+    dexOptions {
+        maxProcessCount 4
+        preDexLibraries false
+        javaMaxHeapSize "8g"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("../buildSystem/dev.jks")
+            storePassword "123456"
+            keyAlias "ikan"
+            keyPassword "123456"
+        }
+
+        release {
+            storeFile file("../buildSystem/release.jks")
+            storePassword "123456"
+            keyAlias "ikan"
+            keyPassword "123456"
+        }
+    }
+
+    defaultConfig {
+        applicationId "me.chriskyle.ikan"
+
+        minSdkVersion androidMinSdk
+        targetSdkVersion androidTargetSdk
+        testInstrumentationRunner "${applicationId}.runner.RxAndroidJUnitRunner"
+
+        versionName "0.0.1"
+        versionCode 1
+
+        multiDexEnabled true
+    }
+
+    flavorDimensions "inner"
+
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "爱看-dev"
+            buildConfigField "String", "ENVIRONMENT", '"dev"'
+            buildConfigField("String", "API_BASE_URL", "\"${DevAPIBaseUrl}\"")
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "dev"]
+
+            dimension "inner"
+        }
+
+        stage {
+            applicationIdSuffix ".stage"
+            resValue "string", "app_name", "爱看-stage"
+            buildConfigField "String", "ENVIRONMENT", '"stage"'
+            buildConfigField("String", "API_BASE_URL", "\"${StageAPIBaseUrl}\"")
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "stage"]
+
+            dimension "inner"
+        }
+
+        prod {
+            resValue "string", "app_name", "爱看"
+            buildConfigField "String", "ENVIRONMENT", '"prod"'
+            buildConfigField("String", "API_BASE_URL", "\"${ProdAPIBaseUrl}\"")
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "prod"]
+
+            dimension "inner"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
+            useProguard false
+            signingConfig signingConfigs.debug
+
+            manifestPlaceholders = [
+                    //qq
+                    TENCENT_ID        : "1106466285",
+
+                    //wx
+                    WEIXIN_ID         : "wxe5aa74981ab81077",
+                    WEIXIN_SECRET     : "43da7d35833c13cb2ff1a0d1e7ae90b8",
+
+                    //wb
+                    WEIBO_APP_KEY     : "2064167199",
+                    WEIBO_REDIRECT_URL: "https://api.weibo.com/oauth2/default.html",
+                    WEIBO_SCOPE       : "",
+            ]
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-fresco.pro'
+
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${variant.productFlavors[0].name}-${defaultConfig.versionName}_${releaseTime()}.apk"
+                }
+            }
+
+            manifestPlaceholders = [
+                    //qq
+                    TENCENT_ID        : "1106639945",
+
+                    //wx
+                    WEIXIN_ID         : "wx2d8500605d60bb41",
+                    WEIXIN_SECRET     : "42934abdfa18e59cdcc10310d84f634a",
+
+                    //wb
+                    WEIBO_APP_KEY     : "2064167199",
+                    WEIBO_REDIRECT_URL: "https://api.weibo.com/oauth2/default.html",
+                    WEIBO_SCOPE       : "email,follow_app_official_microblog",
+            ]
+        }
+    }
+
+    sourceSets {
+        def commonTestDir = 'src/commonTest/java'
+
+        test {
+            java.srcDir commonTestDir
+        }
+
+        androidTest {
+            java.srcDir commonTestDir
+        }
+    }
+
+    lintOptions {
+        textOutput "stdout"
+        textReport true
+        checkAllWarnings true
+        warningsAsErrors true
+        showAll true
+        explainIssues true
+        abortOnError false
+        lintConfig file("$projectDir/lint.xml")
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/license/LICENSE.base64.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+def static releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+def static outputApkPath() {
+    return "${System.properties['user.home']}${File.separator}android_apks"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.squareup.okio:okio:1.13.0'
+        force "com.squareup.okhttp3:okhttp:3.9.0"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation supportLibs
+    implementation uiLibs
+    implementation networkLibs
+    implementation rxJavaLibs
+    implementation videoPlayerLibs
+    implementation otherLibs
+    implementation(glideOkhttp) {
+        exclude group: 'glide-parent'
+    }
+    debugImplementation debugLibs
+    releaseImplementation releaseLibs
+    // APT dependencies
+    kapt annotationProcessorLibs
+    implementation project(':mvp')
+    implementation project(':cupboard')
+    implementation project(':net')
+    implementation project(':rxbus')
+    implementation project(':design')
+    implementation project(':support')
+    implementation project(':toolkit')
+    implementation project(':push')
+    implementation project(':social')
+}
+
+task ikanRelease(dependsOn: assemble) doLast {
+    println("打包完成，开始清除${outputApkPath()}")
+    delete "${outputApkPath()}"
+    println("清除完成，开始复制文件")
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            copy {
+                from(output.outputFile)
+                into("${outputApkPath()}")
+                exclude '*-unaligned.apk'
+            }
+        }
+    }
+}
+

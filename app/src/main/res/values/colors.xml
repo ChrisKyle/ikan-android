@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ************************************* Common ****************************************** -->
+    <color name="primary">#ffffff</color>
+    <color name="accent">@color/primary_blue</color>
+    <color name="colorAccent">@color/primary_blue</color>
+
+    <color name="content_bg">@color/theme_main_window_background</color>
+
+    <color name="lce_indicator_color">@color/primary_yellow</color>
+
+    <color name="refresh_indicator_color">@color/lce_indicator_color</color>
+    <color name="loadmore_indicator_color">@color/lce_indicator_color</color>
+    <color name="refresh_header_bg_color">@color/tertiary_dark</color>
+
+    <integer-array name="progressbar_colors">
+        <item>@color/lce_indicator_color</item>
+    </integer-array>
+
+    <color name="style_color">#de9127</color>
+
+    <!-- ************************************** Main ******************************************* -->
+    <color name="main_bottom_nar_bar_text_color_active">@color/primary_yellow</color>
+    <color name="main_bottom_nar_bar_text_color_inactive">@color/primary_dark</color>
+
+    <!-- ************************************** Feed ******************************************* -->
+    <color name="feed_action_circle">@color/tertiary_dark</color>
+    <color name="feed_action_dot">@color/primary_pink</color>
+
+    <!-- ************************************* Discover **************************************** -->
+    <color name="discover_exchange_feed_btn_normal">#e6e6e6</color>
+    <color name="discover_exchange_feed_btn_press">#d0d0d0</color>
+
+    <!-- ************************************* Account ***************************************** -->
+    <color name="account_login_btn_bg_normal">@color/primary_blue</color>
+    <color name="account_login_btn_bg_press">@color/secondary_blue</color>
+
+    <!-- ************************************** Login ****************************************** -->
+    <color name="login_ins_image_start_color">@color/primary_yellow</color>
+    <color name="login_ins_image_end_color">@color/primary_yellow</color>
+
+    <!-- ************************************** Search ***************************************** -->
+    <color name="search_input_text_hint">#a4a4a4</color>
+    <color name="search_input_text">#424242</color>
+
+    <!-- ************************************** Home ******************************************* -->
+    <color name="movie_view_page_tab_strip_text_active">@color/primary_yellow</color>
+    <color name="movie_view_page_tab_strip_text_inactive">#1a1e23</color>
+
+    <!-- ************************************ Trending ***************************************** -->
+    <color name="feed_section_color">@color/primary_yellow</color>
+
+    <!-- *********************************** Notification ************************************** -->
+    <color name="notification_indicator">@color/primary_yellow</color>
+
+    <!-- ************************************* Setting ***************************************** -->
+    <color name="account_logout_btn_bg_normal">@color/grey4</color>
+    <color name="account_logout_btn_bg_press">@color/grey5</color>
+
+    <!-- ************************************** Assets ***************************************** -->
+    <color name="assets_recharge_btn_bg_normal">@color/primary_yellow</color>
+    <color name="assets_recharge_btn_bg_press">@color/secondary_yellow</color>
+
+</resources>

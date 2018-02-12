@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:insImage="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_third_party"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_centerInParent="true"
+    android:alpha="0.9"
+    android:background="@drawable/shadow_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="15dp"
+        android:src="@drawable/ic_close_black" />
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/login_by_third_party"
+        android:textColor="@color/title_color_primary"
+        android:textSize="@dimen/title_size_secondary" />
+
+    <LinearLayout
+        android:id="@+id/qq_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_title"
+        android:layout_toStartOf="@+id/wx_login"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <me.chriskyle.library.support.InsLoadingView
+            android:id="@+id/qq"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_qq"
+            insImage:end_color="@color/login_ins_image_end_color"
+            insImage:start_color="@color/login_ins_image_start_color"
+            insImage:status="clicked" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/login_by_qq"
+            android:textColor="@color/title_color_secondary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wx_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <me.chriskyle.library.support.InsLoadingView
+            android:id="@+id/wx"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_wx"
+            insImage:end_color="@color/login_ins_image_end_color"
+            insImage:start_color="@color/login_ins_image_start_color"
+            insImage:status="clicked" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/login_by_wx"
+            android:textColor="@color/title_color_secondary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_title"
+        android:layout_toEndOf="@id/wx_login"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <me.chriskyle.library.support.InsLoadingView
+            android:id="@+id/wb"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_wb"
+            insImage:end_color="@color/login_ins_image_end_color"
+            insImage:start_color="@color/login_ins_image_start_color"
+            insImage:status="clicked" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/login_by_wb"
+            android:textColor="@color/title_color_secondary"
+            android:textSize="@dimen/title_size_secondary" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.chriskyle.library.support.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <RelativeLayout
+        android:id="@+id/content_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="0dp"
+        android:paddingStart="10dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/thumbnail"
+            android:layout_width="90dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            app:actualImageScaleType="centerCrop"
+            app:failureImage="@drawable/feed_thumbnail_default"
+            app:failureImageScaleType="centerCrop"
+            app:placeholderImage="@drawable/feed_thumbnail_default"
+            app:placeholderImageScaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/thumbnail"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Widget.Feed.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/title_color_tertiary"
+                    android:textSize="@dimen/title_size_tertiary" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/watch_duration"
+                style="@style/Widget.Feed.Des"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ver_division_line_height"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/thumbnail"
+            android:background="@color/secondary_grey" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/delete"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:background="@color/swipe_menu_bg"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_del_red" />
+
+    </LinearLayout>
+
+</me.chriskyle.library.support.SwipeMenuLayout>
+

@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/dialog_bg"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@id/v4_dialog_title"
+                android:layout_width="@dimen/v4_dialog_content_width"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/v4_dialog_title"
+                android:textSize="@dimen/v4_dialog_title_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/v4_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/v4_dialog_padding_bottom"
+            android:paddingLeft="@dimen/v4_dialog_padding_left"
+            android:paddingRight="@dimen/v4_dialog_padding_right"
+            android:paddingTop="@dimen/v4_dialog_padding_top">
+
+            <TextView
+                android:id="@id/v4_dialog_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/v4_dialog_message"
+                android:textSize="@dimen/v4_dialog_message_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/v4_dialog_footer"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/v4_dialog_action_negative"
+                style="@style/V4_Dialog.Action"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:minWidth="72dp"
+                android:textColor="@color/v4_dialog_action_text" />
+
+            <TextView
+                android:id="@id/v4_dialog_action_positive"
+                style="@style/V4_Dialog.Action"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:minWidth="72dp"
+                android:textColor="@color/v4_dialog_action_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

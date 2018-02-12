@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Title">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Title.Primary" parent="Title">
+        <item name="android:textColor">@color/title_color_primary</item>
+        <item name="android:textSize">@dimen/title_size_primary</item>
+    </style>
+
+    <style name="Title.Secondary" parent="Title">
+        <item name="android:textColor">@color/title_color_secondary</item>
+        <item name="android:textSize">@dimen/title_size_secondary</item>
+    </style>
+
+    <style name="Title.Tertiary" parent="Title">
+        <item name="android:textColor">@color/title_color_tertiary</item>
+        <item name="android:textSize">@dimen/title_size_tertiary</item>
+    </style>
+
+    <style name="Design" />
+
+    <style name="Design.Tip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/tip_bg</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="Design.TipText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">140dp</item>
+        <item name="android:maxWidth">200dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>

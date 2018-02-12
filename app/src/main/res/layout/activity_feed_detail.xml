@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <me.chriskyle.ikan.presentation.module.video.SimpleVideoPlayer
+        android:id="@+id/detail_player"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/feed_detail_video_view_height" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/view_need_offset"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent" />
+
+        <RelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/comment_edit_container"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <me.chriskyle.library.support.likebutton.LikeButton
+                            android:id="@+id/like"
+                            style="@style/Widget.Feed.Detail.Action"
+                            android:layout_centerVertical="true"
+                            app:circle_end_color="@color/feed_action_circle"
+                            app:circle_start_color="@color/feed_action_circle"
+                            app:dots_primary_color="@color/feed_action_dot"
+                            app:dots_secondary_color="@color/feed_action_dot"
+                            app:icon_size="@dimen/feed_detail_action_size"
+                            app:like_drawable="@drawable/ic_like_red"
+                            app:unlike_drawable="@drawable/ic_like_dark" />
+
+                        <TextView
+                            android:id="@+id/like_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/like"
+                            android:gravity="center"
+                            android:textColor="@color/title_color_secondary"
+                            android:textSize="@dimen/title_size_secondary" />
+
+                        <TextView
+                            android:id="@+id/watch_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_toEndOf="@+id/like_count"
+                            android:drawablePadding="15dp"
+                            android:drawableStart="@drawable/ic_watch_count"
+                            android:gravity="center"
+                            android:textColor="@color/title_color_secondary"
+                            android:textSize="@dimen/title_size_secondary" />
+
+                        <me.chriskyle.library.support.likebutton.LikeButton
+                            android:id="@+id/download"
+                            style="@style/Widget.Feed.Detail.Action"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@+id/share"
+                            app:circle_end_color="@color/feed_action_circle"
+                            app:circle_start_color="@color/feed_action_circle"
+                            app:dots_primary_color="@color/feed_action_dot"
+                            app:dots_secondary_color="@color/feed_action_dot"
+                            app:icon_size="@dimen/feed_detail_action_size"
+                            app:like_drawable="@drawable/ic_download_dark"
+                            app:unlike_drawable="@drawable/ic_download_dark" />
+
+                        <me.chriskyle.library.support.likebutton.LikeButton
+                            android:id="@+id/share"
+                            style="@style/Widget.Feed.Detail.Action"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:circle_end_color="@color/feed_action_circle"
+                            app:circle_start_color="@color/feed_action_circle"
+                            app:dots_primary_color="@color/feed_action_dot"
+                            app:dots_secondary_color="@color/feed_action_dot"
+                            app:icon_size="@dimen/feed_detail_action_size"
+                            app:like_drawable="@drawable/ic_share_dark"
+                            app:unlike_drawable="@drawable/ic_share_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="15dp">
+
+                        <TextView
+                            android:id="@+id/video_name"
+                            style="@style/Widget.Feed.Title" />
+
+                        <TextView
+                            android:id="@+id/introduction"
+                            style="@style/Widget.Feed.Introduction"
+                            android:layout_alignParentEnd="true"
+                            android:drawableEnd="@drawable/ic_right_grey"
+                            android:text="@string/feed_detail_video_synopsis_label" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingEnd="15dp"
+                        android:paddingStart="15dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/account_avatar"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerVertical="true"
+                            app:actualImageScaleType="centerCrop"
+                            app:placeholderImage="@drawable/ic_account_avatar_default"
+                            app:roundAsCircle="true" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_toEndOf="@id/account_avatar"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/account_nickname"
+                                style="@style/Widget.Feed.Detail.Account.Nickname" />
+
+                            <TextView
+                                android:id="@+id/upload_date"
+                                style="@style/Widget.Feed.Detail.Account.Des" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:drawableEnd="@drawable/ic_diamond"
+                            android:drawablePadding="3dp"
+                            android:textColor="@color/title_color_secondary"
+                            android:textSize="@dimen/title_size_tertiary" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/feed_comment"
+                        android:textColor="@color/title_color_primary"
+                        android:textSize="@dimen/title_size_primary" />
+
+                    <include layout="@layout/ver_divider_tertiary" />
+
+                    <include layout="@layout/layout_lce_container" />
+
+                </LinearLayout>
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            <RelativeLayout
+                android:id="@+id/comment_edit_container"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/content_bg">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ver_division_line_height"
+                    android:background="@color/tertiary_grey" />
+
+                <EditText
+                    android:id="@+id/comment_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_toStartOf="@+id/comment_send"
+                    android:background="@drawable/feed_comment_edit_bg"
+                    android:gravity="center_vertical"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="35dp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/ic_feed_comment_write" />
+
+                <ImageView
+                    android:id="@+id/comment_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/send" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/synopsis_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp">
+
+                    <TextView
+                        android:id="@+id/introduction_video_name"
+                        style="@style/Widget.Feed.Title"
+                        android:layout_centerVertical="true"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/introduction_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_close" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ver_division_line_height"
+                    android:background="@color/divider_line_color_primary" />
+
+                <TextView
+                    android:id="@+id/synopsis"
+                    style="@style/Widget.Feed.Des"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:maxLines="5"
+                    android:textSize="13sp" />
+
+                <TextView
+                    style="@style/Widget.Feed.Des"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/feed_detail_video_actor_label"
+                    android:textSize="13sp" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/synopsis_actors"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingEnd="60dp"
+                    android:paddingStart="60dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <me.chriskyle.library.design.fragmentanim.SlidingRelativeLayout
+        android:id="@+id/root_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

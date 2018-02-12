@@ -1,0 +1,23 @@
+<resources>
+
+    <item name="bottom_sheet_layout" type="id" />
+    <item name="bottom_sheet_header_title" type="id" />
+    <item name="bottom_sheet_body_gv" type="id" />
+    <item name="bottom_sheet_footer_action" type="id" />
+
+    <style name="BottomSheet" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/BottomSheetAnimation</item>
+    </style>
+
+    <style name="BottomSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_show_animation</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_hide_animation</item>
+    </style>
+
+</resources>

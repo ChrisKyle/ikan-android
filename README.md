@@ -1,4 +1,4 @@
-项目简述 ：chriskyle.me
+[项目简述](www.chriskyle.me) 
 
 
 
